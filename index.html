@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masterfit 40 - Lo mejor empieza ahora</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    body {
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: #f4f4f9;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+      position: relative;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      width: 100%;
+      position: absolute;
+      top: 0;
+    }
+    
+    .logo img {
+      height: 80px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: #DAA520;
+    }
+    
+    .hero-text h1 {
+      font-size: 60px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    
+    .hero-text h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+    
+    .tagline {
+      font-size: 22px;
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: #DAA520;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background-color: #B8860B;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      background-color: #DAA520;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-title p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #666;
+    }
+    
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+    
+    .service-card {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-img {
+      height: 200px;
+      background-color: #ddd;
+    }
+    
+    .service-content {
+      padding: 30px;
+    }
+    
+    .service-content h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .service-content p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    .testimonials {
+      background-color: #f9f9f9;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .testimonial-text {
+      font-size: 16px;
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-img {
+      height: 400px;
+      background-color: #ddd;
+      border-radius: 10px;
+    }
+    
+    .about-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .about-content p {
+      margin-bottom: 15px;
+      color: #666;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      margin-top: 40px;
+      gap: 20px;
+    }
+    
+    .stat-item h3 {
+      font-size: 36px;
+      color: #DAA520;
+      margin-bottom: 10px;
+    }
+    
+    .stat-item p {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .cta {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+    }
+    
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 30px;
+    }
+    
+    .cta p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-col h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: #DAA520;
+      bottom: 0;
+      left: 0;
+    }
+    
+    .footer-col ul {
+      list-style: none;
+    }
+    
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-col ul li a {
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-col ul li a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #444;
+      color: #aaa;
+      font-size: 14px;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 36px;
+      }
+      
+      .hero-text h2 {
+        font-size: 24px;
+      }
+      
+      .about {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="/api/placeholder/100/100" alt="Masterfit 40 Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#metodologia">Metodología</a></li>
+        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    
+    <div class="hero-text">
+      <h2>Bienvenido a</h2>
+      <h1>Masterfit 40</h1>
+      <p class="tagline">Lo mejor empieza ahora</p>
+      <a href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Comienza Hoy</a>
+    </div>
+  </header>
+  
+  <!-- Services Section -->
+  <section id="servicios" class="container">
+    <div class="section-title">
+      <h2>Nuestros Servicios</h2>
+      <p>Programas personalizados para transformar tu cuerpo y mente después de los 40</p>
+    </div>
+    
+    <div class="services">
+      <div class="service-card">
+        <div class="service-img">
+          <img src="/api/placeholder/400/200" alt="Entrenamiento personalizado" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="service-content">
+          <h3>Entrenamiento Personalizado</h3>
+          <p>Programas diseñados específicamente para tu edad, condición física y objetivos personales.</p>
+          <a href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Más Información</a>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-img">
+          <img src="/api/placeholder/400/200" alt="Nutrición adaptada" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="service-content">
+          <h3>Nutrición Personalizada</h3>
+          <p>Planes alimenticios que potencian tu metabolismo y se adaptan a tu estilo de vida.</p>
+          <a href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Más Información</a>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-img">
+          <img src="/api/placeholder/400/200" alt="Coaching integral" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="service-content">
+          <h3>Coaching Integral</h3>
+          <p>Acompañamiento continuo para mantener la motivación y desarrollar hábitos saludables.</p>
+          <a href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Más Información</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="sobre-nosotros" class="container">
+    <div class="about">
+      <div class="about-img">
+        <img src="/api/placeholder/600/400" alt="Sobre Masterfit 40" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+      </div>
+      <div class="about-content">
+        <h2>¿Por qué Masterfit 40?</h2>
+        <p>En Masterfit 40 entendemos que después de los 40 años, el cuerpo cambia y requiere un enfoque diferente. Nuestro método único combina ciencia, experiencia y atención personalizada para lograr resultados reales y duraderos.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>+500</h3>
+            <p>Clientes Satisfechos</p>
+          </div>
+          <div class="stat-item">
+            <h3>15</h3>
+            <p>Años de Experiencia</p>
+          </div>
+          <div class="stat-item">
+            <h3>98%</h3>
+            <p>Tasa de Éxito</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section id="testimonios" class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Testimonios</h2>
+        <p>Historias reales de éxito de personas como tú</p>
+      </div>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"A los 45 años pensé que era imposible recuperar mi forma física. Masterfit 40 me demostró lo contrario. He perdido 15 kilos y recuperado mi energía sin dietas extremas ni rutinas imposibles."</p>
+          <p class="testimonial-author">- Claudia, 46 años</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">"El enfoque integral de Masterfit 40 ha sido clave. No solo transformé mi cuerpo, sino también mi mentalidad y hábitos diarios. A mis 52 años me siento mejor que cuando tenía 40."</p>
+          <p class="testimonial-author">- Roberto, 52 años</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Las asesorías personalizadas me ayudaron a entender cómo mi cuerpo cambia con la edad y cómo adaptar mi entrenamiento y alimentación. Los resultados superaron mis expectativas."</p>
+          <p class="testimonial-author">- Laura, 48 años</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section id="contacto" class="cta">
+    <div class="container">
+      <h2>¿Listo para transformar tu vida?</h2>
+      <p>Da el primer paso hacia una versión más saludable, fuerte y feliz de ti mismo. Lo mejor empieza ahora.</p>
+      <div>
+        <p>Para más información ingresa aquí:</p>
+        <a href="#" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Más Información</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h3>Masterfit 40</h3>
+          <!-- Más contenido del footer -->
+        </div>
+      </div>
+      <p class="copyright">© 2025 Masterfit 40. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script para configurar enlaces de WhatsApp -->
+  <script>
+    // Configuración centralizada para el número y mensaje de WhatsApp
+    const whatsappNumber = '541126694470';
+    const whatsappMessage = encodeURIComponent("Quiero información sobre asesoría fitness");
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+    // Actualiza todos los enlaces que tienen la clase "btn-whatsapp"
+    document.querySelectorAll('.btn-whatsapp').forEach(btn => {
+      btn.href = whatsappURL;
+    });
+  </script>
+</body>
+</html>
